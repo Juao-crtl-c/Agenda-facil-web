@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  border-color: theme("colors.border");
+}
+
+body {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+}
+
+:focus-visible {
+  outline: 2px solid theme("colors.accent.DEFAULT");
+  outline-offset: 2px;
+}
+
+@layer components {
+  /* Superfície de cartão usada em toda a UI (padding fica a cargo de quem
+     usa, já que varia por contexto). */
+  .card {
+    @apply bg-surface border border-border rounded-lg shadow-sm;
+  }
+
+  /* Campo de formulário padrão (input/select). */
+  .field {
+    @apply rounded-sm border border-border bg-paper px-3 py-2 text-sm text-ink
+      transition-colors placeholder:text-ink-soft/70
+      hover:border-ink-soft/60 focus:border-accent focus:outline-none;
+  }
+
+  .btn-primary {
+    @apply bg-ink text-paper rounded-sm px-4 py-2 text-sm font-medium
+      transition-colors hover:bg-ink/85 disabled:opacity-50 disabled:hover:bg-ink;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-paper rounded-sm px-4 py-2 text-sm font-medium
+      transition-colors hover:bg-accent/85 disabled:opacity-50 disabled:hover:bg-accent;
+  }
+
+  .btn-outline {
+    @apply border border-border text-ink rounded-sm px-4 py-2 text-sm font-medium
+      transition-colors hover:border-ink-soft/60 disabled:opacity-50;
+  }
+}
