@@ -87,7 +87,7 @@ export default function NegocioPage() {
         {negocio ? "Dados do negócio" : "Vamos criar o seu negócio"}
       </h1>
 
-      <form onSubmit={salvarNegocio} className="card mt-4 flex flex-col gap-3 p-5">
+      <form onSubmit={salvarNegocio} className="card-glass mt-4 flex flex-col gap-3 p-5">
         <div>
           <label className="mb-1 block text-xs text-ink-soft">Nome do negócio</label>
           <input
@@ -124,7 +124,7 @@ export default function NegocioPage() {
       {negocio && (
         <>
           <h2 className="font-display mt-8 text-lg font-semibold">Horário de funcionamento</h2>
-          <form onSubmit={salvarHorarios} className="card mt-4 flex flex-col gap-2 p-5">
+          <form onSubmit={salvarHorarios} className="card-glass mt-4 flex flex-col gap-2 p-5">
             {DIAS_SEMANA.map((nomeDia, dia) => (
               <div key={dia} className="flex items-center gap-3 border-b border-border py-2 last:border-0">
                 <label className="flex w-28 shrink-0 items-center gap-2 text-sm">

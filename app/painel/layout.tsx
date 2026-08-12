@@ -49,9 +49,9 @@ export default function PainelLayout({ children }: { children: React.ReactNode }
 
   return (
     <PainelProvider negocioInicial={negocio}>
-      <div className="flex min-h-[calc(100vh-53px)]">
+      <div className="flex min-h-[calc(100vh-53px)] flex-col md:flex-row">
         <PainelSidebar usuario={usuario} />
-        <div className="flex-1 p-8">{children}</div>
+        <div className="min-w-0 flex-1 p-4 sm:p-6 md:p-8">{children}</div>
       </div>
     </PainelProvider>
   );

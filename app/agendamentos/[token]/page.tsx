@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { apiFetch, ApiError } from "@/lib/api";
 import type { Agendamento } from "@/lib/types";
 import DetalhesAgendamento from "@/components/DetalhesAgendamento";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default async function AgendamentoPage({ params }: { params: { token: string } }) {
   let agendamento: Agendamento;
@@ -16,7 +17,8 @@ export default async function AgendamentoPage({ params }: { params: { token: str
   }
 
   return (
-    <main className="mx-auto max-w-lg px-6 py-12">
+    <main className="relative mx-auto max-w-lg px-6 py-12">
+      <ThemeToggle className="absolute right-4 top-4" />
       <DetalhesAgendamento agendamentoInicial={agendamento} token={params.token} />
     </main>
   );

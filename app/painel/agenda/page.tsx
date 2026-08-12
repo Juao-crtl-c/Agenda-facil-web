@@ -84,9 +84,9 @@ export default function AgendaPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="font-display text-xl font-semibold">Agenda</h1>
-        <div className="flex items-center gap-2 text-sm">
+        <div className="flex flex-wrap items-center gap-2 text-sm">
           <button onClick={() => setReferencia((d) => addWeeks(d, -1))} className="btn-outline px-3 py-1">
             ← semana anterior
           </button>
@@ -106,17 +106,21 @@ export default function AgendaPage() {
           {dias.map((dia) => {
             const chave = format(dia, "yyyy-MM-dd");
             const doDia = (agendamentos ?? []).filter((a) => a.dataHoraInicio.startsWith(chave));
+            const temAtivo = doDia.some((a) => a.status !== "CANCELADO");
             return (
-              <div key={chave} className="card p-3">
-                <p className="text-xs font-medium capitalize text-ink-soft">
-                  {format(dia, "EEE, dd/MM", { locale: ptBR })}
-                </p>
+              <div key={chave} className="card-glass p-3">
+                <div className="flex items-center gap-1.5">
+                  {temAtivo && <span className="bg-brand h-1.5 w-1.5 shrink-0 rounded-full" />}
+                  <p className="text-xs font-medium capitalize text-ink-soft">
+                    {format(dia, "EEE, dd/MM", { locale: ptBR })}
+                  </p>
+                </div>
                 <div className="mt-2 flex flex-col gap-2">
                   {doDia.length === 0 && <p className="text-xs text-ink-soft/70">Sem agendamentos</p>}
                   {doDia.map((a) => (
                     <div
                       key={a.id}
-                      className={`rounded-sm border border-border p-2 text-xs ${
+                      className={`rounded-sm border border-border bg-surface p-2 text-xs ${
                         a.status === "CANCELADO" ? "opacity-50" : ""
                       }`}
                     >
@@ -135,7 +139,7 @@ export default function AgendaPage() {
 
         <div>
           <p className="text-sm font-medium">Bloqueios</p>
-          <div className="card mt-2 divide-y divide-border">
+          <div className="card-glass mt-2 divide-y divide-border">
             {bloqueios?.length === 0 && <p className="p-3 text-xs text-ink-soft">Nenhum bloqueio.</p>}
             {bloqueios?.map((b) => (
               <div key={b.id} className="p-3 text-xs">
@@ -150,7 +154,7 @@ export default function AgendaPage() {
             ))}
           </div>
 
-          <form onSubmit={criarBloqueio} className="card mt-3 flex flex-col gap-2 p-3">
+          <form onSubmit={criarBloqueio} className="card-glass mt-3 flex flex-col gap-2 p-3">
             <label className="text-xs text-ink-soft">Início</label>
             <input
               required

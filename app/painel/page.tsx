@@ -13,7 +13,7 @@ export default function PainelOverviewPage() {
       <h1 className="font-display text-xl font-semibold">Olá, {negocio?.nome}</h1>
       <p className="mt-1 text-sm text-ink-soft">Esse é o link que seus clientes usam pra marcar horário.</p>
 
-      <div className="card mt-4 flex items-center justify-between gap-3 p-4">
+      <div className="card-glass mt-4 flex items-center justify-between gap-3 p-4">
         <code className="tabular truncate text-sm">{linkPublico}</code>
         <button
           onClick={() => navigator.clipboard.writeText(linkPublico)}
@@ -24,15 +24,15 @@ export default function PainelOverviewPage() {
       </div>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
-        <Link href="/painel/agenda" className="card p-4 text-sm hover:border-ink-soft/60">
+        <Link href="/painel/agenda" className="card p-4 text-sm transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-glow-sm">
           <p className="font-medium">Ver agenda</p>
           <p className="mt-1 text-xs text-ink-soft">Agendamentos e bloqueios</p>
         </Link>
-        <Link href="/painel/servicos" className="card p-4 text-sm hover:border-ink-soft/60">
+        <Link href="/painel/servicos" className="card p-4 text-sm transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-glow-sm">
           <p className="font-medium">Serviços</p>
           <p className="mt-1 text-xs text-ink-soft">Nome, duração e preço</p>
         </Link>
-        <Link href="/painel/negocio" className="card p-4 text-sm hover:border-ink-soft/60">
+        <Link href="/painel/negocio" className="card p-4 text-sm transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-glow-sm">
           <p className="font-medium">Configurações</p>
           <p className="mt-1 text-xs text-ink-soft">Nome e horário de funcionamento</p>
         </Link>

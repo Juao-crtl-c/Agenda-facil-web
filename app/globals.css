@@ -2,12 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-paper: 250 250 252;
+  --color-surface: 255 255 255;
+  --color-ink: 15 11 26;
+  --color-ink-soft: 107 114 128;
+  --color-border: 234 227 250;
+  --color-accent: 124 58 237;
+  --color-accent-dark: 76 29 149;
+  --color-accent-light: 196 181 253;
+  --color-accent-soft: 242 236 254;
+  --color-debit: 166 81 46;
+  --color-debit-soft: 245 233 226;
+  --glass-bg: 255 255 255;
+}
+
+.dark {
+  --color-paper: 16 13 28;
+  --color-surface: 26 20 43;
+  --color-ink: 240 238 248;
+  --color-ink-soft: 162 157 184;
+  --color-border: 54 44 82;
+  --color-accent: 167 139 250;
+  --color-accent-dark: 196 181 253;
+  --color-accent-light: 196 181 253;
+  --color-accent-soft: 45 33 74;
+  --color-debit: 224 122 84;
+  --color-debit-soft: 58 36 26;
+  --glass-bg: 26 20 43;
+}
+
 * {
   border-color: theme("colors.border");
 }
 
 body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .tabular {
@@ -18,20 +49,30 @@ body {
 :focus-visible {
   outline: 2px solid theme("colors.accent.DEFAULT");
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
 @layer components {
-  /* Superfície de cartão usada em toda a UI (padding fica a cargo de quem
-     usa, já que varia por contexto). */
+  /* Superfície de cartão padrão usada na maior parte da UI (padding fica a
+     cargo de quem usa, já que varia por contexto). */
   .card {
     @apply bg-surface border border-border rounded-lg shadow-sm;
+  }
+
+  /* Glassmorphism — reservado pra elementos de destaque (horário
+     selecionado, confirmação, resumo do painel), não pra pág inteira. */
+  .card-glass {
+    @apply rounded-lg border border-accent/15 shadow-glow;
+    background: rgb(var(--glass-bg) / 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   /* Campo de formulário padrão (input/select). */
   .field {
     @apply rounded-sm border border-border bg-paper px-3 py-2 text-sm text-ink
-      transition-colors placeholder:text-ink-soft/70
-      hover:border-ink-soft/60 focus:border-accent focus:outline-none;
+      transition-all placeholder:text-ink-soft/70
+      hover:border-accent/40 focus:border-accent focus:shadow-glow-sm focus:outline-none;
   }
 
   .btn-primary {
@@ -39,13 +80,19 @@ body {
       transition-colors hover:bg-ink/85 disabled:opacity-50 disabled:hover:bg-ink;
   }
 
+  /* Botão de ação primária — gradiente assinatura + glow no hover. */
   .btn-accent {
-    @apply bg-accent text-paper rounded-sm px-4 py-2 text-sm font-medium
-      transition-colors hover:bg-accent/85 disabled:opacity-50 disabled:hover:bg-accent;
+    @apply bg-brand text-white rounded-sm px-4 py-2 text-sm font-medium
+      transition-all hover:shadow-glow disabled:opacity-50 disabled:hover:shadow-none;
   }
 
   .btn-outline {
     @apply border border-border text-ink rounded-sm px-4 py-2 text-sm font-medium
-      transition-colors hover:border-ink-soft/60 disabled:opacity-50;
+      transition-colors hover:border-accent/50 hover:bg-accent-soft disabled:opacity-50 disabled:hover:bg-transparent;
+  }
+
+  /* Nome/marca com o gradiente assinatura no texto (rodapé, destaques pontuais). */
+  .brand-text {
+    @apply bg-brand bg-clip-text text-transparent;
   }
 }

@@ -81,7 +81,7 @@ export default function DetalhesAgendamento({
   const confirmado = agendamento.status === "CONFIRMADO";
 
   return (
-    <div className="card p-6">
+    <div className="card-glass p-6">
       <p className="text-xs font-medium uppercase tracking-wider text-accent">{agendamento.negocio?.nome}</p>
       <h1 className="font-display mt-1 text-xl font-semibold">{agendamento.servico?.nome}</h1>
       <p className="tabular mt-1 text-sm text-ink-soft">
@@ -136,7 +136,7 @@ export default function DetalhesAgendamento({
                     key={slot.inicio}
                     disabled={confirmandoSlot}
                     onClick={() => remarcarPara(slot)}
-                    className="tabular rounded-sm border border-border py-2 text-sm hover:border-accent hover:bg-accent-soft disabled:opacity-50"
+                    className="tabular rounded-sm border border-border py-2 text-sm font-medium transition-all hover:border-transparent hover:bg-brand hover:text-white hover:shadow-glow active:scale-95 disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-ink disabled:hover:shadow-none"
                   >
                     {format(new Date(slot.inicio), "HH:mm")}
                   </button>

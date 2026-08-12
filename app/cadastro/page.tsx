@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { apiFetch, ApiError } from "@/lib/api";
 import { salvarSessao } from "@/lib/auth";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function CadastroPage() {
   const router = useRouter();
@@ -33,47 +34,50 @@ export default function CadastroPage() {
   }
 
   return (
-    <main className="mx-auto flex max-w-sm flex-col justify-center px-6 py-20">
-      <h1 className="font-display text-xl font-semibold">Criar conta</h1>
-      <p className="mt-1 text-sm text-ink-soft">Configure a agenda do seu negócio em poucos minutos.</p>
+    <main className="relative mx-auto flex min-h-screen max-w-sm flex-col justify-center px-6 py-20">
+      <ThemeToggle className="absolute right-4 top-4" />
+      <div className="card-glass p-6">
+        <h1 className="font-display text-xl font-semibold">Criar conta</h1>
+        <p className="mt-1 text-sm text-ink-soft">Configure a agenda do seu negócio em poucos minutos.</p>
 
-      <form onSubmit={onSubmit} className="mt-6 flex flex-col gap-3">
-        <input
-          required
-          placeholder="Seu nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          className="field"
-        />
-        <input
-          type="email"
-          required
-          placeholder="E-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="field"
-        />
-        <input
-          type="password"
-          required
-          minLength={8}
-          placeholder="Senha (mínimo 8 caracteres)"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
-          className="field"
-        />
-        {erro && <p className="text-sm text-debit">{erro}</p>}
-        <button type="submit" disabled={enviando} className="btn-accent">
-          {enviando ? "Criando conta..." : "Criar conta"}
-        </button>
-      </form>
+        <form onSubmit={onSubmit} className="mt-6 flex flex-col gap-3">
+          <input
+            required
+            placeholder="Seu nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            className="field"
+          />
+          <input
+            type="email"
+            required
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="field"
+          />
+          <input
+            type="password"
+            required
+            minLength={8}
+            placeholder="Senha (mínimo 8 caracteres)"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            className="field"
+          />
+          {erro && <p className="text-sm text-debit">{erro}</p>}
+          <button type="submit" disabled={enviando} className="btn-accent">
+            {enviando ? "Criando conta..." : "Criar conta"}
+          </button>
+        </form>
 
-      <p className="mt-6 text-center text-sm text-ink-soft">
-        Já tem conta?{" "}
-        <Link href="/entrar" className="text-accent hover:underline">
-          Entrar
-        </Link>
-      </p>
+        <p className="mt-6 text-center text-sm text-ink-soft">
+          Já tem conta?{" "}
+          <Link href="/entrar" className="text-accent hover:underline">
+            Entrar
+          </Link>
+        </p>
+      </div>
     </main>
   );
 }

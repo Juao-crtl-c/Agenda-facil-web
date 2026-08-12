@@ -87,7 +87,7 @@ export default function ServicosPage() {
       <h1 className="font-display text-xl font-semibold">Serviços</h1>
       <p className="mt-1 text-sm text-ink-soft">Os serviços que aparecem pro cliente na hora de agendar.</p>
 
-      <div className="card mt-4 divide-y divide-border">
+      <div className="card-glass mt-4 divide-y divide-border">
         {servicos === null && <p className="p-4 text-sm text-ink-soft">Carregando...</p>}
         {servicos?.length === 0 && <p className="p-4 text-sm text-ink-soft">Nenhum serviço cadastrado ainda.</p>}
         {servicos?.map((s) =>
@@ -121,7 +121,7 @@ export default function ServicosPage() {
               </button>
             </div>
           ) : (
-            <div key={s.id} className="flex items-center justify-between p-3 text-sm">
+            <div key={s.id} className="flex flex-col gap-2 p-3 text-sm sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <span className="font-medium">{s.nome}</span>
                 <span className="ml-2 text-ink-soft">{s.duracaoMinutos} min</span>
@@ -140,7 +140,7 @@ export default function ServicosPage() {
         )}
       </div>
 
-      <form onSubmit={criar} className="mt-4 flex flex-wrap gap-2 rounded-lg border border-border bg-surface p-4">
+      <form onSubmit={criar} className="card-glass mt-4 flex flex-wrap gap-2 p-4">
         <input
           required
           placeholder="Nome (ex: Corte)"

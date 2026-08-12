@@ -91,9 +91,11 @@ export default function FluxoAgendamento({ negocio }: { negocio: Negocio }) {
 
   if (etapa === "sucesso" && resultado) {
     return (
-      <div className="card p-6 text-center">
-        <CheckCircle2 className="mx-auto h-10 w-10 text-accent" />
-        <p className="mt-3 font-medium">Agendamento confirmado!</p>
+      <div className="card-glass p-6 text-center">
+        <div className="bg-brand shadow-glow mx-auto flex h-14 w-14 items-center justify-center rounded-full">
+          <CheckCircle2 className="h-7 w-7 text-white" />
+        </div>
+        <p className="mt-4 font-medium">Agendamento confirmado!</p>
         <p className="mt-1 text-sm text-ink-soft">
           {format(new Date(resultado.dataHoraInicio), "dd/MM/yyyy 'às' HH:mm")} — {servico?.nome}
         </p>
@@ -109,7 +111,7 @@ export default function FluxoAgendamento({ negocio }: { negocio: Negocio }) {
   }
 
   return (
-    <div className="card p-5">
+    <div className="card-glass p-5">
       {etapa === "servico" && (
         <div>
           <p className="mb-3 text-sm font-medium">1. Escolha o serviço</p>
@@ -121,13 +123,13 @@ export default function FluxoAgendamento({ negocio }: { negocio: Negocio }) {
                   setServico(s);
                   setEtapa("horario");
                 }}
-                className="flex items-center justify-between rounded-sm border border-border px-4 py-3 text-left text-sm hover:border-accent"
+                className="flex items-center justify-between rounded-sm border border-border px-4 py-3 text-left text-sm transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-glow-sm"
               >
                 <span>
                   <span className="font-medium">{s.nome}</span>
                   <span className="ml-2 text-ink-soft">{s.duracaoMinutos} min</span>
                 </span>
-                <span className="tabular text-ink-soft">{formatBRL(s.preco)}</span>
+                <span className="tabular font-semibold text-accent-dark">{formatBRL(s.preco)}</span>
               </button>
             ))}
             {(negocio.servicos?.length ?? 0) === 0 && (
@@ -169,7 +171,7 @@ export default function FluxoAgendamento({ negocio }: { negocio: Negocio }) {
                       setSlotEscolhido(slot);
                       setEtapa("cliente");
                     }}
-                    className="tabular rounded-sm border border-border py-2 text-sm hover:border-accent hover:bg-accent-soft"
+                    className="tabular rounded-sm border border-border py-2 text-sm font-medium transition-all hover:border-transparent hover:bg-brand hover:text-white hover:shadow-glow active:scale-95"
                   >
                     {format(new Date(slot.inicio), "HH:mm")}
                   </button>

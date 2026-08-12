@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { CalendarCheck, Clock, ShieldCheck } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function LandingPage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-20 text-center">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-accent">Vianova Dev</p>
+    <main className="relative mx-auto max-w-3xl px-6 py-20 text-center">
+      <ThemeToggle className="absolute right-4 top-4" />
+      <p className="brand-text mb-3 text-xs font-semibold uppercase tracking-wider">Vianova Dev</p>
       <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">Agenda Fácil</h1>
       <p className="mx-auto mt-4 max-w-xl text-ink-soft">
         Chega de marcar horário pelo WhatsApp e perder o controle da agenda. Seus clientes marcam
@@ -21,14 +23,14 @@ export default function LandingPage() {
       </div>
 
       <div className="mt-16 grid gap-4 text-left sm:grid-cols-3">
-        <div className="card p-5">
+        <div className="card p-5 transition-all hover:-translate-y-0.5 hover:shadow-glow-sm">
           <CalendarCheck className="mb-2 h-5 w-5 text-accent" />
           <p className="text-sm font-medium">Página própria</p>
           <p className="mt-1 text-xs text-ink-soft">
             Um link só seu, onde o cliente escolhe serviço, dia e horário sem precisar criar conta.
           </p>
         </div>
-        <div className="card p-5">
+        <div className="card p-5 transition-all hover:-translate-y-0.5 hover:shadow-glow-sm">
           <ShieldCheck className="mb-2 h-5 w-5 text-accent" />
           <p className="text-sm font-medium">Sem horário duplicado</p>
           <p className="mt-1 text-xs text-ink-soft">
@@ -36,7 +38,7 @@ export default function LandingPage() {
             mesmo tempo.
           </p>
         </div>
-        <div className="card p-5">
+        <div className="card p-5 transition-all hover:-translate-y-0.5 hover:shadow-glow-sm">
           <Clock className="mb-2 h-5 w-5 text-accent" />
           <p className="text-sm font-medium">Cancelamento fácil</p>
           <p className="mt-1 text-xs text-ink-soft">
