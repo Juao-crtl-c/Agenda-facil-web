@@ -11,6 +11,12 @@ Segue a mesma identidade visual do primeiro projeto da marca, [Vianova Gestão
 Financeira](https://github.com/Juao-crtl-c/vianova-gestao-financeira), pra
 manter consistência de portfólio de estúdio.
 
+## Produção
+
+**https://agenda-facil-web-tan.vercel.app** — publicado na Vercel, deploy
+automático a cada push em `master`. Consome a [API em
+produção](https://github.com/Juao-crtl-c/agenda-facil-api) na Render.
+
 ## Stack
 
 Next.js 14 (App Router) + TypeScript + Tailwind CSS. Sem cliente Prisma nem
@@ -65,7 +71,6 @@ painel → abra `/<seu-slug>` (o link público) → agende como se fosse cliente
 
 ## Próximos passos (roadmap)
 
-- [ ] Deploy (Vercel) — depende da API estar publicada primeiro
 - [ ] Cookie httpOnly via proxy Next em vez de token em localStorage
 - [ ] Visão mensal (calendário) além da semanal em `/painel/agenda`
 - [ ] Múltiplos profissionais por negócio (quando a API suportar)
