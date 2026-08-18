@@ -1,20 +1,34 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { THEME_INIT_SCRIPT } from "@/components/ThemeToggle";
 
-const display = Space_Grotesk({
-  subsets: ["latin"],
+// Auto-hospedadas em vez de carregadas via <link> do Fontshare: a API deles
+// serve URLs de fonte protocol-relative (`//cdn...`), que em dev (http://
+// localhost, não https) resolvem pra http e caem num redirect 301 que quebra
+// o carregamento — só funcionaria em produção (https). Baixar os arquivos
+// evita essa pegadinha e qualquer dependência de rede em runtime.
+const display = localFont({
+  src: [
+    { path: "./fonts/CabinetGrotesk-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/CabinetGrotesk-Bold.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-display",
-  weight: ["500", "600", "700"],
+  display: "swap",
 });
 
-const body = Inter({
-  subsets: ["latin"],
+const body = localFont({
+  src: [
+    { path: "./fonts/GeneralSans-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/GeneralSans-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/GeneralSans-SemiBold.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-body",
+  display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   weight: ["400", "500"],

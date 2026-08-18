@@ -3,33 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --color-paper: 250 250 252;
+  --color-paper: 242 244 248;
   --color-surface: 255 255 255;
-  --color-ink: 15 11 26;
-  --color-ink-soft: 107 114 128;
-  --color-border: 234 227 250;
+  --color-ink: 15 23 42;
+  --color-ink-soft: 71 85 105;
+  --color-border: 226 232 240;
   --color-accent: 124 58 237;
   --color-accent-dark: 76 29 149;
-  --color-accent-light: 196 181 253;
-  --color-accent-soft: 242 236 254;
-  --color-debit: 166 81 46;
-  --color-debit-soft: 245 233 226;
+  --color-accent-light: 167 139 250;
+  --color-accent-soft: 237 233 254;
   --glass-bg: 255 255 255;
 }
 
 .dark {
-  --color-paper: 16 13 28;
-  --color-surface: 26 20 43;
-  --color-ink: 240 238 248;
-  --color-ink-soft: 162 157 184;
-  --color-border: 54 44 82;
+  --color-paper: 7 13 25;
+  --color-surface: 11 17 32;
+  --color-ink: 248 250 252;
+  --color-ink-soft: 148 163 184;
+  --color-border: 30 41 59;
   --color-accent: 167 139 250;
   --color-accent-dark: 196 181 253;
-  --color-accent-light: 196 181 253;
-  --color-accent-soft: 45 33 74;
-  --color-debit: 224 122 84;
-  --color-debit-soft: 58 36 26;
-  --glass-bg: 26 20 43;
+  --color-accent-light: 216 180 254;
+  --color-accent-soft: 76 29 149;
+  --glass-bg: 11 17 32;
 }
 
 * {
@@ -91,8 +87,12 @@ body {
       transition-colors hover:border-accent/50 hover:bg-accent-soft disabled:opacity-50 disabled:hover:bg-transparent;
   }
 
-  /* Nome/marca com o gradiente assinatura no texto (rodapé, destaques pontuais). */
+  /* Nome/marca com o gradiente assinatura no texto (rodapé, wordmark). */
   .brand-text {
     @apply bg-brand bg-clip-text text-transparent;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-1 text-xs font-medium text-ink-soft;
   }
 }

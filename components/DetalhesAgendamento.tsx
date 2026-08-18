@@ -87,29 +87,26 @@ export default function DetalhesAgendamento({
       <p className="tabular mt-1 text-sm text-ink-soft">
         {format(new Date(agendamento.dataHoraInicio), "dd/MM/yyyy 'às' HH:mm")}
       </p>
-      <p className="mt-2 text-xs">
-        Status:{" "}
-        <span
-          className={
-            agendamento.status === "CONFIRMADO"
-              ? "text-accent"
-              : agendamento.status === "CANCELADO"
-              ? "text-debit"
-              : "text-ink-soft"
-          }
-        >
-          {agendamento.status.toLowerCase()}
-        </span>
-      </p>
+      <span
+        className={`badge mt-2 ${
+          agendamento.status === "CONFIRMADO"
+            ? "text-accent-dark"
+            : agendamento.status === "CANCELADO"
+            ? "text-red-600 dark:text-red-400"
+            : "text-ink-soft"
+        }`}
+      >
+        {agendamento.status.toLowerCase()}
+      </span>
 
-      {erro && <p className="mt-3 text-sm text-debit">{erro}</p>}
+      {erro && <p className="mt-3 text-sm text-red-600 dark:text-red-400">{erro}</p>}
 
       {confirmado && !remarcando && (
         <div className="mt-5 flex gap-2">
           <button onClick={() => setRemarcando(true)} className="btn-outline text-sm">
             Remarcar
           </button>
-          <button onClick={cancelar} disabled={cancelando} className="btn-outline text-sm text-debit">
+          <button onClick={cancelar} disabled={cancelando} className="btn-outline text-sm text-red-600 dark:text-red-400">
             {cancelando ? "Cancelando..." : "Cancelar"}
           </button>
         </div>
@@ -127,7 +124,7 @@ export default function DetalhesAgendamento({
           />
           <div className="mt-3">
             {slots === null && !erroSlots && <p className="text-sm text-ink-soft">Carregando horários...</p>}
-            {erroSlots && <p className="text-sm text-debit">{erroSlots}</p>}
+            {erroSlots && <p className="text-sm text-red-600 dark:text-red-400">{erroSlots}</p>}
             {slots?.length === 0 && <p className="text-sm text-ink-soft">Nenhum horário livre nesse dia.</p>}
             {slots && slots.length > 0 && (
               <div className="grid grid-cols-4 gap-2">

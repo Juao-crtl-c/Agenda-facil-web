@@ -56,7 +56,7 @@ export default function EntrarPage() {
             onChange={(e) => setSenha(e.target.value)}
             className="field"
           />
-          {erro && <p className="text-sm text-debit">{erro}</p>}
+          {erro && <p className="text-sm text-red-600 dark:text-red-400">{erro}</p>}
           <button type="submit" disabled={enviando} className="btn-accent">
             {enviando ? "Entrando..." : "Entrar"}
           </button>

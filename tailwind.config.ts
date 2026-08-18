@@ -20,20 +20,16 @@ const config: Config = {
           light: "rgb(var(--color-accent-light) / <alpha-value>)",
           soft: "rgb(var(--color-accent-soft) / <alpha-value>)",
         },
-        debit: {
-          DEFAULT: "rgb(var(--color-debit) / <alpha-value>)",
-          soft: "rgb(var(--color-debit-soft) / <alpha-value>)",
-        },
       },
       fontFamily: {
-        display: ["var(--font-display)", "sans-serif"],
-        body: ["var(--font-body)", "sans-serif"],
-        mono: ["var(--font-mono)", "monospace"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        body: ["var(--font-body)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       borderRadius: {
-        sm: "10px",
-        DEFAULT: "14px",
-        lg: "20px",
+        sm: "6px",
+        DEFAULT: "10px",
+        lg: "16px",
       },
       backgroundImage: {
         brand: "linear-gradient(135deg, #7C3AED 0%, #4C1D95 100%)",

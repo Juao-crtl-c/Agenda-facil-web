@@ -99,7 +99,7 @@ export default function AgendaPage() {
         </div>
       </div>
 
-      {erro && <p className="mt-2 text-sm text-debit">{erro}</p>}
+      {erro && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{erro}</p>}
 
       <div className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_320px]">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -128,7 +128,7 @@ export default function AgendaPage() {
                         {format(new Date(a.dataHoraInicio), "HH:mm")} · {a.servico?.nome}
                       </p>
                       <p className="text-ink-soft">{a.clienteNome}</p>
-                      {a.status === "CANCELADO" && <p className="text-debit">cancelado</p>}
+                      {a.status === "CANCELADO" && <p className="text-red-600 dark:text-red-400">cancelado</p>}
                     </div>
                   ))}
                 </div>
@@ -147,7 +147,7 @@ export default function AgendaPage() {
                   {format(new Date(b.dataHoraInicio), "dd/MM HH:mm")} – {format(new Date(b.dataHoraFim), "dd/MM HH:mm")}
                 </p>
                 {b.motivo && <p className="text-ink-soft">{b.motivo}</p>}
-                <button onClick={() => removerBloqueio(b.id)} className="mt-1 text-debit hover:underline">
+                <button onClick={() => removerBloqueio(b.id)} className="mt-1 text-red-600 hover:underline dark:text-red-400">
                   remover
                 </button>
               </div>
@@ -177,7 +177,7 @@ export default function AgendaPage() {
               onChange={(e) => setMotivoBloqueio(e.target.value)}
               className="field text-xs"
             />
-            {erroBloqueio && <p className="text-xs text-debit">{erroBloqueio}</p>}
+            {erroBloqueio && <p className="text-xs text-red-600 dark:text-red-400">{erroBloqueio}</p>}
             <button type="submit" disabled={criandoBloqueio} className="btn-accent text-xs">
               {criandoBloqueio ? "Criando..." : "Bloquear horário"}
             </button>
