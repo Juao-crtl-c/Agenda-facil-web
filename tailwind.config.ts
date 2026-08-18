@@ -32,11 +32,11 @@ const config: Config = {
         lg: "16px",
       },
       backgroundImage: {
-        brand: "linear-gradient(135deg, #7C3AED 0%, #4C1D95 100%)",
+        brand: "linear-gradient(135deg, #e11d48 0%, #4f46e5 100%)",
       },
       boxShadow: {
-        glow: "0 8px 24px rgba(124, 58, 237, 0.25)",
-        "glow-sm": "0 4px 14px rgba(124, 58, 237, 0.18)",
+        glow: "0 8px 24px rgba(79, 70, 229, 0.25)",
+        "glow-sm": "0 4px 14px rgba(79, 70, 229, 0.18)",
       },
     },
   },

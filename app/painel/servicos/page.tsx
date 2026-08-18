@@ -131,7 +131,7 @@ export default function ServicosPage() {
                 <button onClick={() => iniciarEdicao(s)} className="text-xs text-accent hover:underline">
                   editar
                 </button>
-                <button onClick={() => remover(s.id, s.nome)} className="text-xs text-red-600 hover:underline dark:text-red-400">
+                <button onClick={() => remover(s.id, s.nome)} className="text-xs text-rose-600 hover:underline dark:text-rose-400">
                   remover
                 </button>
               </div>
@@ -172,7 +172,7 @@ export default function ServicosPage() {
           {criando ? "Adicionando..." : "Adicionar"}
         </button>
       </form>
-      {erro && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{erro}</p>}
+      {erro && <p className="mt-2 text-sm text-rose-600 dark:text-rose-400">{erro}</p>}
     </div>
   );
 }

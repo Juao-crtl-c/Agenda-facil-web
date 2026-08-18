@@ -158,7 +158,7 @@ export default function FluxoAgendamento({ negocio }: { negocio: Negocio }) {
             {atendeNesseDia && slots === null && !erroSlots && (
               <p className="text-sm text-ink-soft">Carregando horários...</p>
             )}
-            {erroSlots && <p className="text-sm text-red-600 dark:text-red-400">{erroSlots}</p>}
+            {erroSlots && <p className="text-sm text-rose-600 dark:text-rose-400">{erroSlots}</p>}
             {atendeNesseDia && slots?.length === 0 && (
               <p className="text-sm text-ink-soft">Nenhum horário livre nesse dia.</p>
             )}
@@ -207,7 +207,7 @@ export default function FluxoAgendamento({ negocio }: { negocio: Negocio }) {
               onChange={(e) => setEmail(e.target.value)}
               className="field"
             />
-            {erroEnvio && <p className="text-sm text-red-600 dark:text-red-400">{erroEnvio}</p>}
+            {erroEnvio && <p className="text-sm text-rose-600 dark:text-rose-400">{erroEnvio}</p>}
             <button type="submit" disabled={enviando} className="btn-accent">
               {enviando ? "Confirmando..." : "Confirmar agendamento"}
             </button>

@@ -65,7 +65,7 @@ export default function CadastroPage() {
             onChange={(e) => setSenha(e.target.value)}
             className="field"
           />
-          {erro && <p className="text-sm text-red-600 dark:text-red-400">{erro}</p>}
+          {erro && <p className="text-sm text-rose-600 dark:text-rose-400">{erro}</p>}
           <button type="submit" disabled={enviando} className="btn-accent">
             {enviando ? "Criando conta..." : "Criar conta"}
           </button>

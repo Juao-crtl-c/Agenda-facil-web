@@ -92,21 +92,21 @@ export default function DetalhesAgendamento({
           agendamento.status === "CONFIRMADO"
             ? "text-accent-dark"
             : agendamento.status === "CANCELADO"
-            ? "text-red-600 dark:text-red-400"
+            ? "text-rose-600 dark:text-rose-400"
             : "text-ink-soft"
         }`}
       >
         {agendamento.status.toLowerCase()}
       </span>
 
-      {erro && <p className="mt-3 text-sm text-red-600 dark:text-red-400">{erro}</p>}
+      {erro && <p className="mt-3 text-sm text-rose-600 dark:text-rose-400">{erro}</p>}
 
       {confirmado && !remarcando && (
         <div className="mt-5 flex gap-2">
           <button onClick={() => setRemarcando(true)} className="btn-outline text-sm">
             Remarcar
           </button>
-          <button onClick={cancelar} disabled={cancelando} className="btn-outline text-sm text-red-600 dark:text-red-400">
+          <button onClick={cancelar} disabled={cancelando} className="btn-outline text-sm text-rose-600 dark:text-rose-400">
             {cancelando ? "Cancelando..." : "Cancelar"}
           </button>
         </div>
@@ -124,7 +124,7 @@ export default function DetalhesAgendamento({
           />
           <div className="mt-3">
             {slots === null && !erroSlots && <p className="text-sm text-ink-soft">Carregando horários...</p>}
-            {erroSlots && <p className="text-sm text-red-600 dark:text-red-400">{erroSlots}</p>}
+            {erroSlots && <p className="text-sm text-rose-600 dark:text-rose-400">{erroSlots}</p>}
             {slots?.length === 0 && <p className="text-sm text-ink-soft">Nenhum horário livre nesse dia.</p>}
             {slots && slots.length > 0 && (
               <div className="grid grid-cols-4 gap-2">

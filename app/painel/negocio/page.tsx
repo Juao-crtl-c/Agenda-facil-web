@@ -114,7 +114,7 @@ export default function NegocioPage() {
             Só letras minúsculas, números e hífen. Vai ser sua página: agendafacil.app/{slug || "seu-negocio"}
           </p>
         </div>
-        {erroNegocio && <p className="text-sm text-red-600 dark:text-red-400">{erroNegocio}</p>}
+        {erroNegocio && <p className="text-sm text-rose-600 dark:text-rose-400">{erroNegocio}</p>}
         {sucessoNegocio && <p className="text-sm text-accent">Salvo com sucesso.</p>}
         <button type="submit" disabled={salvandoNegocio} className="btn-accent self-start">
           {salvandoNegocio ? "Salvando..." : negocio ? "Salvar alterações" : "Criar negócio"}
@@ -152,7 +152,7 @@ export default function NegocioPage() {
                 />
               </div>
             ))}
-            {erroHorario && <p className="text-sm text-red-600 dark:text-red-400">{erroHorario}</p>}
+            {erroHorario && <p className="text-sm text-rose-600 dark:text-rose-400">{erroHorario}</p>}
             {sucessoHorario && <p className="text-sm text-accent">Horário salvo.</p>}
             <button type="submit" disabled={salvandoHorario} className="btn-accent mt-2 self-start">
               {salvandoHorario ? "Salvando..." : "Salvar horário"}
