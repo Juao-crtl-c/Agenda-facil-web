@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { apiFetch, ApiError } from "@/lib/api";
 import type { Agendamento, Slot } from "@/lib/types";
 
@@ -122,6 +123,9 @@ export default function DetalhesAgendamento({
             onChange={(e) => setData(e.target.value)}
             className="field"
           />
+          <p className="mt-1 text-xs capitalize text-ink-soft">
+            {format(new Date(`${data}T00:00:00`), "EEEE, dd 'de' MMMM", { locale: ptBR })}
+          </p>
           <div className="mt-3">
             {slots === null && !erroSlots && <p className="text-sm text-ink-soft">Carregando horários...</p>}
             {erroSlots && <p className="text-sm text-rose-600 dark:text-rose-400">{erroSlots}</p>}

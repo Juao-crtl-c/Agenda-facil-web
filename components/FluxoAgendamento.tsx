@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { CheckCircle2 } from "lucide-react";
 import { apiFetch, ApiError } from "@/lib/api";
 import type { Agendamento, Negocio, Servico, Slot } from "@/lib/types";
@@ -152,6 +153,9 @@ export default function FluxoAgendamento({ negocio }: { negocio: Negocio }) {
             onChange={(e) => setData(e.target.value)}
             className="field"
           />
+          <p className="mt-1 text-xs capitalize text-ink-soft">
+            {format(new Date(`${data}T00:00:00`), "EEEE, dd 'de' MMMM", { locale: ptBR })}
+          </p>
 
           <div className="mt-4">
             {!atendeNesseDia && <p className="text-sm text-ink-soft">Fechado nesse dia. Escolha outra data.</p>}
